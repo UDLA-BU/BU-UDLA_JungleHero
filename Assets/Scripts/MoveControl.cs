@@ -6,6 +6,7 @@ public class MoveControl : MonoBehaviour
     private Vector2 direction = Vector2.right;
     private Rigidbody2D rb;
     private CollectibleManager collectibleManager;
+    public Vector2 startPoint;
 
     private void Awake()
     {
@@ -21,25 +22,32 @@ public class MoveControl : MonoBehaviour
 
     private void Update()
     {
-        // Obtener las entradas de dirección del jugador
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
+        direction = Vector2.up;//Siempre se moverà en esa direcciòn
 
-        // Si hay alguna entrada de dirección, actualizamos la velocidad del rigidbody
-        if (horizontalInput != 0 || verticalInput != 0)
+        // Detecta la direccion a la que gira
+        if (Input.GetKey(KeyCode.W))
         {
-            Vector2 direction = new Vector2(horizontalInput, verticalInput).normalized;
-            rb.velocity = direction * speed;
-
-            // Rotar el personaje hacia la dirección del movimiento
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            rb.rotation = angle;
+            transform.rotation = Quaternion.Euler(0f, 0f, 360f);
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, 180f);
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, 270f);
         }
     }
 
+
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+        // Mover el jugador constantemente
+        transform.Translate(direction * speed * Time.fixedDeltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -53,6 +61,16 @@ public class MoveControl : MonoBehaviour
                 collectibleManager.CollectibleCollected(); // Notificamos al CollectibleManager que el coleccionable ha sido recolectado
             }
         }
+        if (collision.CompareTag("Respawn"))
+            Die();
+    }
+    void Die()
+    {
+        Respawn();
+    }
+    void Respawn()
+    {
+        transform.position = startPoint;
     }
 
     private void OnCollectibleCollected()

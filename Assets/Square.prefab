@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9178186013181306684}
   - component: {fileID: 6751454921827808962}
-  - component: {fileID: 611376581652878711}
   - component: {fileID: 3027641431615283340}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Letra
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9716981, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.9622642, g: 0.56646496, b: 0.56646496, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -86,19 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &611376581652878711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3858961264691171957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36ced55b6bb5d4a45add0eb789d46176, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreValue: 10
 --- !u!61 &3027641431615283340
 BoxCollider2D:
   m_ObjectHideFlags: 0
