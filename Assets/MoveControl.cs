@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MoveControl : MonoBehaviour
 {
@@ -122,6 +123,7 @@ public class MoveControl : MonoBehaviour
                 collectible.Collect();
                 collectibleManager.CollectibleCollected(); // Notificamos al CollectibleManager que el coleccionable ha sido recolectado
             }
+            //totalScore += scoreValue;
         }
         if (collision.CompareTag("Respawn"))
             Die();

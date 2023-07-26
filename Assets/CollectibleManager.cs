@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CollectibleManager : MonoBehaviour
@@ -10,6 +11,8 @@ public class CollectibleManager : MonoBehaviour
 
     public delegate void CollectibleCollectedEvent();
     public static event CollectibleCollectedEvent OnCollectibleCollected;
+
+    //List<string> targetWords;
 
     private void Start()
     {
