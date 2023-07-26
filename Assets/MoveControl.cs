@@ -8,6 +8,8 @@ public class MoveControl : MonoBehaviour
     private CollectibleManager collectibleManager;
     public Vector2 startPoint;
     //List <char> collectedLetters;
+    private Vector2 startTouchPosition;
+    private Vector2 endTouchPosition;
 
     private void Awake()
     {
@@ -21,12 +23,48 @@ public class MoveControl : MonoBehaviour
         CollectibleManager.OnCollectibleCollected -= OnCollectibleCollected;
     }
 
+
+
     private void Update()
     {
-        direction = Vector2.up;//Siempre se moverà en esa direcciòn
 
-        // Detecta la direccion a la que gira
-        if (Input.GetKey(KeyCode.W))
+        direction = Vector2.up;//Siempre se moverà en esa direcciòn
+        // Detecta la direccion a la que gira haciendo swipe
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            startTouchPosition = Input.GetTouch(0).position;
+        }
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        {
+            endTouchPosition = Input.GetTouch(0).position;
+
+            Vector2 inputVector = endTouchPosition - startTouchPosition;
+            if (Mathf.Abs(inputVector.x) > Mathf.Abs(inputVector.y))
+            {
+                if (inputVector.x > 0)
+                {
+                    RightSwipe();
+                }
+                else
+                {
+                    LeftSwipe();
+                }
+            }
+            else
+            {
+                if (inputVector.y > 0)
+                {
+                    UpSwipe();
+                }
+                else
+                {
+                    DownSwipe();
+                }
+            }
+        }
+        // Detecta la direccion a la que gira con teclas
+        /*if (Input.GetKey(KeyCode.W))
         {
             transform.rotation = Quaternion.Euler(0f, 0f, 360f);
         }
@@ -40,16 +78,39 @@ public class MoveControl : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            transform.rotation = Quaternion.Euler(0f, 0f, 270f);
-        }
+            transform.rotation = Quaternion.Euler(0f, 0f, 270f);*/
     }
 
+    private void UpSwipe()
+    {
+        print("up");
+        transform.rotation = Quaternion.Euler(0f, 0f, 360f);
+    }
+    private void DownSwipe()
+    {
+        print("down");
+        transform.rotation = Quaternion.Euler(0f, 0f, 180f);
+    }
+    private void LeftSwipe()
+    {
+        print("left");
+        transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+    }
+    private void RightSwipe()
+    {
+        print("right");
+        transform.rotation = Quaternion.Euler(0f, 0f, 270f);
+    }
+    
 
     private void FixedUpdate()
     {
+    
         // Mover el jugador constantemente
         transform.Translate(direction * speed * Time.fixedDeltaTime);
     }
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -64,6 +125,7 @@ public class MoveControl : MonoBehaviour
         }
         if (collision.CompareTag("Respawn"))
             Die();
+        
     }
     void Die()
     {
@@ -83,4 +145,5 @@ public class MoveControl : MonoBehaviour
         // Aquí puedes implementar cualquier lógica adicional que desees cuando se recolecte un objeto coleccionable
         speed += 0.5f;
     }
+
 }
