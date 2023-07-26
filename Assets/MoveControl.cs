@@ -3,10 +3,11 @@ using UnityEngine;
 public class MoveControl : MonoBehaviour
 {
     public float speed = 5f;
-    private Vector2 direction = Vector2.right;
+    private Vector2 direction; 
     private Rigidbody2D rb;
     private CollectibleManager collectibleManager;
     public Vector2 startPoint;
+    //List <char> collectedLetters;
 
     private void Awake()
     {
@@ -66,15 +67,20 @@ public class MoveControl : MonoBehaviour
     }
     void Die()
     {
-        Respawn();
+       
+         Respawn();
+
     }
     void Respawn()
     {
         transform.position = startPoint;
+        speed = 5f;
+        
     }
 
     private void OnCollectibleCollected()
     {
         // Aquí puedes implementar cualquier lógica adicional que desees cuando se recolecte un objeto coleccionable
+        speed += 0.5f;
     }
 }
