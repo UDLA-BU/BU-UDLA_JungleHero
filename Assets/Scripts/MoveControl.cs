@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MoveControl : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 2f;
     private Vector2 direction; 
     private Rigidbody2D rb;
     private CollectibleManager collectibleManager;
@@ -74,7 +74,7 @@ public class MoveControl : MonoBehaviour
     void Respawn()
     {
         transform.position = startPoint;
-        speed = 5f;
+        speed = 2f;
         
     }
 
