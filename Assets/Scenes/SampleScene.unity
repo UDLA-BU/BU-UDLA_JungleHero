@@ -697,9 +697,9 @@ GameObject:
   - component: {fileID: 1137643952}
   - component: {fileID: 1137643951}
   - component: {fileID: 1137643950}
-  - component: {fileID: 1137643949}
+  - component: {fileID: 1137643953}
   m_Layer: 0
-  m_Name: Idle
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -772,20 +772,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1137643949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137643946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f16fe2bfcc0ba06439a86ea2fc17a73a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  startPoint: {x: 0, y: 0}
 --- !u!95 &1137643950
 Animator:
   serializedVersion: 4
@@ -843,6 +829,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1137643953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137643946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed53da619e9df2240acde3f2f5b98822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  startPoint: {x: 0, y: 0}
 --- !u!1001 &1455258081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -935,6 +935,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectiblePrefab: {fileID: 539517654404861988, guid: 8954dbd9c871fb14b90a96abd192b1c2, type: 3}
   numCollectibles: 10
+  collectible: {fileID: 5832024210808698992, guid: 8954dbd9c871fb14b90a96abd192b1c2, type: 3}
+  listaPalabras:
+  - SNAKE
 --- !u!4 &1626227633
 Transform:
   m_ObjectHideFlags: 0
