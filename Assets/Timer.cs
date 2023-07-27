@@ -6,18 +6,24 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public float timer = 0;
+    /*public float timer = 0;
     public Text textoTimer;
     public TextMeshPro textoTimerPro;
-   
+
 
     // Update is called once per frame
     void Update()
     {
-       timer += Time.deltaTime;
-       textoTimer.text = "" + timer.ToString("f1");
-       textoTimerPro.text = "" + timer.ToString("f1");
+        timer += Time.deltaTime;
+        textoTimer.text = "" + timer.ToString("f1");
+        textoTimerPro.text = "" + timer.ToString("f1");
 
 
     }
+    void Die()
+    {
+        timer = Time.deltaTime;
+        Debug.Log(timer);
+    }
+   */
 }

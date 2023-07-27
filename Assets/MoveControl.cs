@@ -8,15 +8,19 @@ public class MoveControl : MonoBehaviour
     private Rigidbody2D rb;
     private CollectibleManager collectibleManager;
     public Vector2 startPoint;
-    //List <char> collectedLetters;
     private Vector2 startTouchPosition;
     private Vector2 endTouchPosition;
+
+    private LevelManager levelManager;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         collectibleManager = FindObjectOfType<CollectibleManager>();
         CollectibleManager.OnCollectibleCollected += OnCollectibleCollected;
+
+        // Obtener referencia al LevelManager
+        levelManager = FindObjectOfType<LevelManager>();
     }
 
     private void OnDestroy()
@@ -30,6 +34,7 @@ public class MoveControl : MonoBehaviour
     {
 
         direction = Vector2.up;//Siempre se moverà en esa direcciòn
+       
         // Detecta la direccion a la que gira haciendo swipe
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
@@ -106,9 +111,7 @@ public class MoveControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-    
-        // Mover el jugador constantemente
-        transform.Translate(direction * speed * Time.fixedDeltaTime);
+        transform.Translate(direction * speed * Time.fixedDeltaTime);// Mover el jugador constantemente
     }
 
 
@@ -123,7 +126,7 @@ public class MoveControl : MonoBehaviour
                 collectible.Collect();
                 collectibleManager.CollectibleCollected(); // Notificamos al CollectibleManager que el coleccionable ha sido recolectado
             }
-            //totalScore += scoreValue;
+            
         }
         if (collision.CompareTag("Respawn"))
             Die();
@@ -133,19 +136,32 @@ public class MoveControl : MonoBehaviour
     {
        
          Respawn();
+        Debug.Log("You died");
+
+        // Reiniciar el temporizador al morir
+        levelManager.ResetTimer();
 
     }
     void Respawn()
     {
         transform.position = startPoint;
         speed = 5f;
-        
+        // Reiniciar el temporizador al reiniciar el nivel
+        levelManager.ResetTimer();
+
     }
 
     private void OnCollectibleCollected()
     {
-        // Aquí puedes implementar cualquier lógica adicional que desees cuando se recolecte un objeto coleccionable
+
+        // Agregar totalScore al puntaje actual del jugador y mostrarlo en la interfaz de usuario.
         speed += 0.5f;
+
+        // Llamar al método OnCollectibleCollected del LevelManager
+        levelManager.OnCollectibleCollected();
+
     }
+
+
 
 }

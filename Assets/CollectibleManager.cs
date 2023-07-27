@@ -12,7 +12,7 @@ public class CollectibleManager : MonoBehaviour
     public delegate void CollectibleCollectedEvent();
     public static event CollectibleCollectedEvent OnCollectibleCollected;
 
-    //List<string> targetWords;
+    
 
     private void Start()
     {
@@ -42,5 +42,9 @@ public class CollectibleManager : MonoBehaviour
         {
             OnCollectibleCollected(); // Disparamos el evento para notificar a los suscriptores que se recolectó un objeto
         }
+    }
+    public void Premio()
+    {
+
     }
 }
