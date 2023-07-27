@@ -3,18 +3,20 @@ using UnityEngine.UI;
 
 public class MoveControl : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 0f;
     private Vector2 direction; 
     private Rigidbody2D rb;
     private CollectibleManager collectibleManager;
     public Vector2 startPoint;
     private Vector2 startTouchPosition;
     private Vector2 endTouchPosition;
+    private Animator anim;
 
     private LevelManager levelManager;
 
     private void Awake()
     {
+        anim= GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         collectibleManager = FindObjectOfType<CollectibleManager>();
         CollectibleManager.OnCollectibleCollected += OnCollectibleCollected;
@@ -22,7 +24,11 @@ public class MoveControl : MonoBehaviour
         // Obtener referencia al LevelManager
         levelManager = FindObjectOfType<LevelManager>();
     }
-
+    private void Start()
+    {
+        speed = 2;
+        anim.SetFloat("speed",0);
+    }
     private void OnDestroy()
     {
         CollectibleManager.OnCollectibleCollected -= OnCollectibleCollected;
@@ -43,6 +49,8 @@ public class MoveControl : MonoBehaviour
 
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
+            //speed = 2;
+            anim.SetFloat("speed", 1);
             endTouchPosition = Input.GetTouch(0).position;
 
             Vector2 inputVector = endTouchPosition - startTouchPosition;
@@ -69,6 +77,7 @@ public class MoveControl : MonoBehaviour
                 }
             }
         }
+
         // Detecta la direccion a la que gira con teclas
         /*if (Input.GetKey(KeyCode.W))
         {
@@ -145,7 +154,7 @@ public class MoveControl : MonoBehaviour
     void Respawn()
     {
         transform.position = startPoint;
-        speed = 5f;
+        speed = 2f;
         // Reiniciar el temporizador al reiniciar el nivel
         levelManager.ResetTimer();
 
