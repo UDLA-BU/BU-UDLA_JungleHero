@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MoveControl : MonoBehaviour
+public class MoveControl: MonoBehaviour
 {
     public float speed = 0f;
     private Vector2 direction; 

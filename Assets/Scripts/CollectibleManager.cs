@@ -61,9 +61,9 @@ public class CollectibleManager : MonoBehaviour
             {
                 Debug.Log("Palabra Completa!");
                 letrasIndividuales.Clear();
-                contadorPalabras++;
                 letrasIndividuales = new List<char>(listaPalabras[IndexInicial++].ToCharArray());
             }
+                contadorPalabras++;
         }
 
         if (OnCollectibleCollected != null)
