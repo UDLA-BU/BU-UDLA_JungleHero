@@ -523,11 +523,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9178186013181306684, guid: 939f5072bb66e7c4fbf38d2863280e5b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.4822
+      value: -2.65
       objectReference: {fileID: 0}
     - target: {fileID: 9178186013181306684, guid: 939f5072bb66e7c4fbf38d2863280e5b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3
+      value: -0.23
       objectReference: {fileID: 0}
     - target: {fileID: 9178186013181306684, guid: 939f5072bb66e7c4fbf38d2863280e5b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -588,7 +588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9178186013181306684, guid: 939f5072bb66e7c4fbf38d2863280e5b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.5152
+      value: 2.73
       objectReference: {fileID: 0}
     - target: {fileID: 9178186013181306684, guid: 939f5072bb66e7c4fbf38d2863280e5b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1113,7 +1113,11 @@ MonoBehaviour:
   numCollectibles: 10
   collectible: {fileID: 5832024210808698992, guid: 8954dbd9c871fb14b90a96abd192b1c2, type: 3}
   listaPalabras:
-  - SNAKE
+  - BARIZO
+  - DUMBIKI
+  - MURUPUMA
+  - YAKUMAMA
+  - SACHAWAGRA
 --- !u!4 &1626227633
 Transform:
   m_ObjectHideFlags: 0
