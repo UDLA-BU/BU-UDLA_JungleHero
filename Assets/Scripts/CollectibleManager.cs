@@ -15,8 +15,8 @@ public class CollectibleManager : MonoBehaviour
     public static event CollectibleCollectedEvent OnCollectibleCollected;
 
     [Header("Lista de Palabras")]
-    public List<string> listaPalabras;
-    private List<char> letrasIndividuales;
+    public List<string> listaPalabras = new List<string>();
+    private List<char> letrasIndividuales = new List<char>(); 
     private char currentLetter;
 
     private int IndexInicial = 0;
@@ -25,7 +25,12 @@ public class CollectibleManager : MonoBehaviour
     private void Start()
     {
         gridLayout = GetComponentInParent<GridLayout>();
-        letrasIndividuales = new List<char>(listaPalabras[IndexInicial].ToCharArray());
+        foreach(string palabra in listaPalabras)
+        {
+            letrasIndividuales.AddRange(palabra.ToCharArray());
+        }
+ 
+        //letrasIndividuales = new List<char>(listaPalabras[IndexInicial].ToCharArray());
         currentLetter = letrasIndividuales[IndexInicial];
         Debug.Log(letrasIndividuales.Count);
         for (int i = 0; i < numCollectibles; i++)
@@ -50,20 +55,16 @@ public class CollectibleManager : MonoBehaviour
         currentCollectible = null; // Indicamos que el objeto coleccionable ha sido recolectado
         contador++;
         Debug.Log(contador);
-        while (contadorPalabras < listaPalabras.Count)
+        if (contador < letrasIndividuales.Count)
         {
-            if(contador < letrasIndividuales.Count)
-            {
-                GenerateCollectible(letrasIndividuales[contador]); // Generamos un nuevo objeto coleccionable
-            }
+            GenerateCollectible(letrasIndividuales[contador]); // Generamos un nuevo objeto coleccionable
+        }
 
-            if (contador == letrasIndividuales.Count)
-            {
-                Debug.Log("Palabra Completa!");
-                letrasIndividuales.Clear();
-                letrasIndividuales = new List<char>(listaPalabras[IndexInicial++].ToCharArray());
-            }
-                contadorPalabras++;
+        if (contador == letrasIndividuales.Count)
+        {
+            Debug.Log("Palabra Completa!");
+            contadorPalabras++;
+
         }
 
         if (OnCollectibleCollected != null)
@@ -75,4 +76,10 @@ public class CollectibleManager : MonoBehaviour
     {
 
     }
+
+    //private void ResetLetters()
+    //{
+    //    letrasIndividuales.Clear();
+    //    letrasIndividuales = new List<char>(listaPalabras[IndexInicial++].ToCharArray());
+    //}
 }
