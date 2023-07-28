@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,10 +21,13 @@ public class MoveControl: MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         collectibleManager = FindObjectOfType<CollectibleManager>();
         CollectibleManager.OnCollectibleCollected += OnCollectibleCollected;
+        CollectibleManager.OnWordCollected += OnWordCollected;
 
         // Obtener referencia al LevelManager
         levelManager = FindObjectOfType<LevelManager>();
     }
+
+
     private void Start()
     {
         speed = 2;
@@ -169,6 +173,10 @@ public class MoveControl: MonoBehaviour
         // Llamar al método OnCollectibleCollected del LevelManager
         levelManager.OnCollectibleCollected();
 
+    }
+    private void OnWordCollected()
+    {
+        //Aqui poner lo que necesitas
     }
 
 

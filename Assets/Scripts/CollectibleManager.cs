@@ -7,6 +7,7 @@ public class CollectibleManager : MonoBehaviour
     public GameObject collectiblePrefab;
     public int numCollectibles = 10;
     private int contador = 0;
+    private int contadorCollectibles = 0;
 
     private GridLayout gridLayout;
     private GameObject currentCollectible;
@@ -14,6 +15,7 @@ public class CollectibleManager : MonoBehaviour
 
     public delegate void CollectibleCollectedEvent();
     public static event CollectibleCollectedEvent OnCollectibleCollected;
+    public static event CollectibleCollectedEvent OnWordCollected;
 
     [Header("Lista de Palabras")]
     public List<string> listaPalabras = new List<string>();
@@ -61,16 +63,18 @@ public class CollectibleManager : MonoBehaviour
     {
         currentCollectible = null; // Indicamos que el objeto coleccionable ha sido recolectado
         contador++;
+        contadorCollectibles++;
         Debug.Log(contador);
         if (contador < letrasIndividuales.Count)
         {
-            GenerateCollectible(letrasIndividuales[contador]); // Generamos un nuevo objeto coleccionable
+            GenerateCollectible(letrasIndividuales[contadorCollectibles]); // Generamos un nuevo objeto coleccionable
         }
 
         if (contador == numLetras[contadorPalabras])
         {
             Debug.Log("Palabra Completa! " + listaPalabras[contadorPalabras]);
             contador = 0;
+            OnWordCollected?.Invoke();
             if(contadorPalabras < Insigneas.Count)
             {
                 contadorPalabras++;
@@ -78,18 +82,10 @@ public class CollectibleManager : MonoBehaviour
             }
         }
 
-        if (OnCollectibleCollected != null)
-        {
-            OnCollectibleCollected(); // Disparamos el evento para notificar a los suscriptores que se recolectó un objeto
-        }
+        OnCollectibleCollected?.Invoke(); // Disparamos el evento para notificar a los suscriptores que se recolectó un objeto
     }
     public void Premio()
     {
 
-    }
-
-    private void CountLetters()
-    {
-        
     }
 }
