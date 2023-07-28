@@ -27,4 +27,12 @@ public class SoundManager : MonoBehaviour
    public void ChangeMasterVolume(float value){
    		AudioListener.volume = value;
    }
+   
+   public void ToggleEffects() {
+   		_effectsSource.mute = !_effectsSource.mute;
+   }
+   
+   public void ToggleMusic() {
+   		_musicSource.mute = !_musicSource.mute;
+   }
 }

@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class ToggleAudio : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private bool _toggleMusic, _toggleEffects;
+	
+	public void Toggle() {
+	if(_toggleEffects) SoundManager.Instance.ToggleEffects();
+	if(_toggleMusic) SoundManager.Instance.ToggleMusic();
+	}
 }
