@@ -6,9 +6,7 @@ public class InsigneasManager : MonoBehaviour
 {
     [Header("Insigneas")]
     public List<GameObject> imagenes = new List<GameObject>();
-    public List<GameObject> imagenesTextos = new List<GameObject>();
     private int imagenActualIndex = 0;
-    private int imagenTextosIndex = 0;
 
     private GameObject currentInsignea;
 
@@ -27,10 +25,6 @@ public class InsigneasManager : MonoBehaviour
         if (imagenes.Count > 0)
         {
             imagenes[0].SetActive(true);
-        }
-        if (imagenes.Count > 0)
-        {
-            imagenesTextos[0].SetActive(true);
         }
     }
 
@@ -53,25 +47,6 @@ public class InsigneasManager : MonoBehaviour
         if (imagenActualIndex >= 0 && imagenActualIndex < imagenes.Count)
         {
             imagenes[imagenActualIndex].SetActive(true);
-        }
-
-        // Apagar la imagen actual
-        if (imagenActualIndex >= 0 && imagenActualIndex < imagenes.Count)
-        {
-            imagenes[imagenActualIndex].SetActive(false);
-        }
-
-        // Incrementar el índice y asegurarse de que esté dentro del rango de la lista
-        imagenTextosIndex++;
-        if (imagenTextosIndex >= imagenesTextos.Count)
-        {
-            imagenTextosIndex = 0;
-        }
-
-        // Encender la siguiente imagen
-        if (imagenTextosIndex >= 0 && imagenTextosIndex < imagenesTextos.Count)
-        {
-            imagenes[imagenTextosIndex].SetActive(true);
         }
     }
 }
