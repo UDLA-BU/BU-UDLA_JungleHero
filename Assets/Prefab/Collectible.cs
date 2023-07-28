@@ -6,7 +6,9 @@ public class Collectible : MonoBehaviour
     public int scoreValue = 10;
     public TMP_Text textoLetra;
     [SerializeField] private char letraActual;
-    //private string letra = "o";
+	private AudioSource collect;
+    private GameObject soundObj;
+    public string letra = "o";
 
     //public delegate void GetLetterDelegate(char letra);
     //public event GetLetterDelegate GetLetterEvent;
@@ -16,6 +18,8 @@ public class Collectible : MonoBehaviour
     private void Awake()
     {
         collectibleManager = GetComponent<CollectibleManager>();
+        soundObj = GameObject.Find("SoundManager/GameSoundContainer/CollectedLetter");
+        collect = soundObj.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -31,6 +35,7 @@ public class Collectible : MonoBehaviour
      
     public void Collect()
     {
+        collect.Play();
         //GameManager.Instance.AddScore(scoreValue);
         Destroy(gameObject);
     }
