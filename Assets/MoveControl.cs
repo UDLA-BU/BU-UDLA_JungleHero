@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +11,7 @@ public class MoveControl: MonoBehaviour
     private Vector2 startTouchPosition;
     private Vector2 endTouchPosition;
     private Animator anim;
+    public GameObject derrota;
 
     private LevelManager levelManager;
 
@@ -21,17 +21,15 @@ public class MoveControl: MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         collectibleManager = FindObjectOfType<CollectibleManager>();
         CollectibleManager.OnCollectibleCollected += OnCollectibleCollected;
-        CollectibleManager.OnWordCollected += OnWordCollected;
 
         // Obtener referencia al LevelManager
         levelManager = FindObjectOfType<LevelManager>();
     }
-
-
     private void Start()
     {
         speed = 2;
         anim.SetFloat("speed",0);
+        transform.position = startPoint;
     }
     private void OnDestroy()
     {
@@ -147,18 +145,17 @@ public class MoveControl: MonoBehaviour
     }
     void Die()
     {
-       
-         Respawn();
+        Respawn();
         Debug.Log("You died");
-
         // Reiniciar el temporizador al morir
         levelManager.ResetTimer();
+        derrota.SetActive(true);
 
     }
     void Respawn()
     {
         transform.position = startPoint;
-        speed = 2f;
+        speed = 0f;
         // Reiniciar el temporizador al reiniciar el nivel
         levelManager.ResetTimer();
 
@@ -173,10 +170,6 @@ public class MoveControl: MonoBehaviour
         // Llamar al método OnCollectibleCollected del LevelManager
         levelManager.OnCollectibleCollected();
 
-    }
-    private void OnWordCollected()
-    {
-        //Aqui poner lo que necesitas
     }
 
 

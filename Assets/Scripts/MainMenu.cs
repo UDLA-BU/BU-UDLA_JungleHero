@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene(0);  // Put name of the scene ("AmazonGame"), number (1) or (SceneManager.GetActiveScene().buildIndex + 1)
+        SceneManager.LoadScene(1);  // Put name of the scene ("AmazonGame"), number (1) or (SceneManager.GetActiveScene().buildIndex + 1)
     }
 
     public void QuitGame()
