@@ -11,11 +11,14 @@ public class CollectibleManager : MonoBehaviour
 
     private GridLayout gridLayout;
     private GameObject currentCollectible;
+    private GameObject canvasWin;
     public Collectible collectible;
+
 
     public delegate void CollectibleCollectedEvent();
     public static event CollectibleCollectedEvent OnCollectibleCollected;
     public static event CollectibleCollectedEvent OnWordCollected;
+    public static event CollectibleCollectedEvent OnWin;
 
     public delegate void AnimalsNames();
     public static event AnimalsNames OnAnimalNames;
@@ -88,6 +91,11 @@ public class CollectibleManager : MonoBehaviour
                 contadorPalabras++;
                 Instantiate(Insigneas[contadorPalabras-1], insigneaPosicion.position, Quaternion.identity);
             }
+        }
+
+        if(contadorPalabras == listaPalabras.Count)
+        {
+            canvasWin.SetActive(true);
         }
 
         OnCollectibleCollected?.Invoke(); // Disparamos el evento para notificar a los suscriptores que se recolectó un objeto
