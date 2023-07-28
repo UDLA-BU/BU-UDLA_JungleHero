@@ -10,7 +10,7 @@ public class Insigneas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        soundObj = GameObject.Find("SoundManager/GameSoundContainer/CollectedLetter");
+        soundObj = GameObject.Find("SoundManager/GameSoundContainer/Word Formed");
         clip = soundObj.GetComponent<AudioSource>();
         clip.Play();
         Destroy(gameObject, 2f);

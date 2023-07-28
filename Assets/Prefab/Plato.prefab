@@ -117,7 +117,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreValue: 10
   textoLetra: {fileID: 6217768412885604884}
-  letraActual: 83
+  letraActual: 65
+  letra: o
 --- !u!1 &4405074640267333725
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +185,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: S
+  m_text: A
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: acbfe33a152e648d1b7f60f9a707cca7, type: 2}
   m_sharedMaterial: {fileID: 1793748016974360442, guid: acbfe33a152e648d1b7f60f9a707cca7, type: 2}

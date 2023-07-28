@@ -21,6 +21,7 @@ public class MoveControl: MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         collectibleManager = FindObjectOfType<CollectibleManager>();
         CollectibleManager.OnCollectibleCollected += OnCollectibleCollected;
+        CollectibleManager.OnCollectibleCollected += OnWordCollected;
 
         // Obtener referencia al LevelManager
         levelManager = FindObjectOfType<LevelManager>();
@@ -34,6 +35,7 @@ public class MoveControl: MonoBehaviour
     private void OnDestroy()
     {
         CollectibleManager.OnCollectibleCollected -= OnCollectibleCollected;
+        CollectibleManager.OnCollectibleCollected -= OnWordCollected;
     }
 
 
@@ -157,7 +159,7 @@ public class MoveControl: MonoBehaviour
         transform.position = startPoint;
         speed = 0f;
         // Reiniciar el temporizador al reiniciar el nivel
-        levelManager.ResetTimer();
+        //levelManager.ResetTimer();
 
     }
 
@@ -171,7 +173,11 @@ public class MoveControl: MonoBehaviour
         levelManager.OnCollectibleCollected();
 
     }
+    public void OnWordCollected()
+    {
 
+       // speed -= 2f;
+    }
 
 
 }

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public class LevelManager : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class LevelManager : MonoBehaviour
     private int baseScore = 100; // Puntaje base por recolectar un coleccionable
     private int maxAdditionalScore = 200; // Puntos adicionales máximos por completar el nivel rápidamente
     public Text textoTimer;
+    public TMP_Text score;
     private void Start()
     {
         currentTime = levelTime;
@@ -18,6 +21,8 @@ public class LevelManager : MonoBehaviour
     private void Update()
     {
         textoTimer.text = "" + currentTime.ToString("f1");
+        score.text = "" + levelTime.ToString("f1");
+
         // Actualizar el temporizador
         if (levelTime < 1f)
         {
@@ -43,9 +48,10 @@ public class LevelManager : MonoBehaviour
         return Mathf.RoundToInt(maxAdditionalScore - (timeRemaining / levelTime) * maxAdditionalScore);
     }
 
-    public void ResetTimer()
+    /*public void ResetTimer()
     {
         currentTime = levelTime;
-        print(CalculateAdditionalScore(currentTime));
+        
     }
+    */
 }
