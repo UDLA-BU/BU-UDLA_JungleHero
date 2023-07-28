@@ -38,6 +38,8 @@ public class CollectibleManager : MonoBehaviour
             letrasIndividuales.AddRange(palabra.ToCharArray());
             numLetras.Add(palabra.Length);
         }
+
+        
  
         //letrasIndividuales = new List<char>(listaPalabras[IndexInicial].ToCharArray());
         currentLetter = letrasIndividuales[IndexInicial];

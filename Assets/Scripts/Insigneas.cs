@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Insigneas : MonoBehaviour
 {
+    public string ID;
     // Start is called before the first frame update
     void Start()
     {
