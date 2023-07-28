@@ -19,10 +19,13 @@ public class InsigneasManager : MonoBehaviour
     {
         CollectibleManager.OnAnimalNames -= MostrarImagenSiguiente;
     }
-    void Start()
+    private void Start()
     {
-        currentInsignea = Insigneas[0];
-        currentInsignea.SetActive(true);
+        // Encender la primera imagen
+        if (imagenes.Count > 0)
+        {
+            imagenes[0].SetActive(true);
+        }
     }
 
     public void MostrarImagenSiguiente()
@@ -47,3 +50,4 @@ public class InsigneasManager : MonoBehaviour
         }
     }
 }
+
