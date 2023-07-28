@@ -17,6 +17,9 @@ public class CollectibleManager : MonoBehaviour
     public static event CollectibleCollectedEvent OnCollectibleCollected;
     public static event CollectibleCollectedEvent OnWordCollected;
 
+    public delegate void AnimalsNames(string name);
+    public static event AnimalsNames OnAnimalNames;
+
     [Header("Lista de Palabras")]
     public List<string> listaPalabras = new List<string>();
     private List<char> letrasIndividuales = new List<char>();
@@ -77,10 +80,11 @@ public class CollectibleManager : MonoBehaviour
             Debug.Log("Palabra Completa! " + listaPalabras[contadorPalabras]);
             contador = 0;
             OnWordCollected?.Invoke();
+            OnAnimalNames?.Invoke(listaPalabras[contadorPalabras]);
             if(contadorPalabras < Insigneas.Count)
             {
                 contadorPalabras++;
-                Instantiate(Insigneas[contadorPalabras], insigneaPosicion.position, Quaternion.identity);
+                Instantiate(Insigneas[contadorPalabras-1], insigneaPosicion.position, Quaternion.identity);
             }
         }
 
