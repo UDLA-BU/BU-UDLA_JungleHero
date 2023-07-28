@@ -147,9 +147,9 @@ public class MoveControl: MonoBehaviour
     {
         Respawn();
         Debug.Log("You died");
-        // Reiniciar el temporizador al morir
-        levelManager.ResetTimer();
+        //levelManager.ResetTimer();
         derrota.SetActive(true);
+        //Debug.Log("SCORE: "+ levelManager.currentTime);
 
     }
     void Respawn()
