@@ -312,6 +312,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5547234439330947093}
     m_Modifications:
+    - target: {fileID: 1065237326894230431, guid: d12d3cfa773c64332ae2579cc3f7dc2d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705018604585144811, guid: d12d3cfa773c64332ae2579cc3f7dc2d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651917221522056749, guid: d12d3cfa773c64332ae2579cc3f7dc2d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674843704347482306, guid: d12d3cfa773c64332ae2579cc3f7dc2d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4176194949379384756, guid: d12d3cfa773c64332ae2579cc3f7dc2d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -359,6 +375,14 @@ PrefabInstance:
     - target: {fileID: 4922967854886463281, guid: d12d3cfa773c64332ae2579cc3f7dc2d, type: 3}
       propertyPath: m_Name
       value: UISoundContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5353650094956312600, guid: d12d3cfa773c64332ae2579cc3f7dc2d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6954850888186617027, guid: d12d3cfa773c64332ae2579cc3f7dc2d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d12d3cfa773c64332ae2579cc3f7dc2d, type: 3}
