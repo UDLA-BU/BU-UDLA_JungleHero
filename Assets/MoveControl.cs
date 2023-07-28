@@ -98,22 +98,22 @@ public class MoveControl: MonoBehaviour
 
     private void UpSwipe()
     {
-        print("up");
+        //print("up");
         transform.rotation = Quaternion.Euler(0f, 0f, 360f);
     }
     private void DownSwipe()
     {
-        print("down");
+        //print("down");
         transform.rotation = Quaternion.Euler(0f, 0f, 180f);
     }
     private void LeftSwipe()
     {
-        print("left");
+        //print("left");
         transform.rotation = Quaternion.Euler(0f, 0f, 90f);
     }
     private void RightSwipe()
     {
-        print("right");
+        //print("right");
         transform.rotation = Quaternion.Euler(0f, 0f, 270f);
     }
     

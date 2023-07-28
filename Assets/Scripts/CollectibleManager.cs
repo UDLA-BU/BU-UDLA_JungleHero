@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CollectibleManager : MonoBehaviour
@@ -16,8 +17,13 @@ public class CollectibleManager : MonoBehaviour
 
     [Header("Lista de Palabras")]
     public List<string> listaPalabras = new List<string>();
-    private List<char> letrasIndividuales = new List<char>(); 
+    private List<char> letrasIndividuales = new List<char>();
+    private List<int> numLetras = new List<int>();
     private char currentLetter;
+
+    [Header("Insigneas")]
+    public List<GameObject> Insigneas = new List<GameObject>();
+    public Transform insigneaPosicion;
 
     private int IndexInicial = 0;
     private int contadorPalabras = 0;
@@ -28,6 +34,7 @@ public class CollectibleManager : MonoBehaviour
         foreach(string palabra in listaPalabras)
         {
             letrasIndividuales.AddRange(palabra.ToCharArray());
+            numLetras.Add(palabra.Length);
         }
  
         //letrasIndividuales = new List<char>(listaPalabras[IndexInicial].ToCharArray());
@@ -60,11 +67,15 @@ public class CollectibleManager : MonoBehaviour
             GenerateCollectible(letrasIndividuales[contador]); // Generamos un nuevo objeto coleccionable
         }
 
-        if (contador == letrasIndividuales.Count)
+        if (contador == numLetras[contadorPalabras])
         {
-            Debug.Log("Palabra Completa!");
-            contadorPalabras++;
-
+            Debug.Log("Palabra Completa! " + listaPalabras[contadorPalabras]);
+            contador = 0;
+            if(contadorPalabras < Insigneas.Count)
+            {
+                contadorPalabras++;
+                Instantiate(Insigneas[contadorPalabras], insigneaPosicion.position, Quaternion.identity);
+            }
         }
 
         if (OnCollectibleCollected != null)
@@ -77,9 +88,8 @@ public class CollectibleManager : MonoBehaviour
 
     }
 
-    //private void ResetLetters()
-    //{
-    //    letrasIndividuales.Clear();
-    //    letrasIndividuales = new List<char>(listaPalabras[IndexInicial++].ToCharArray());
-    //}
+    private void CountLetters()
+    {
+        
+    }
 }

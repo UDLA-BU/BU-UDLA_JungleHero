@@ -414,6 +414,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 939f5072bb66e7c4fbf38d2863280e5b, type: 3}
+--- !u!1 &627452358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 627452359}
+  m_Layer: 0
+  m_Name: InsigneaSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &627452359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627452358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &710257201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1149,13 @@ MonoBehaviour:
   - MURUPUMA
   - YAKUMAMA
   - SACHAWAGRA
+  Insigneas:
+  - {fileID: 6391348228019591265, guid: acde4a42bb3dfdc4d8cb423ea5cd13ee, type: 3}
+  - {fileID: 5610070378124088505, guid: 205211ad745c83140b31fb8c8eb2afba, type: 3}
+  - {fileID: 5121975405850764854, guid: ab989403c5e6b5040b25aafc47db2775, type: 3}
+  - {fileID: 1689185184213328053, guid: 9f6c464b37d71fa44aa2501631052fe8, type: 3}
+  - {fileID: 8900591337347788599, guid: af662469928f3d74c9db1a4c39d4c9e8, type: 3}
+  insigneaPosicion: {fileID: 627452359}
 --- !u!4 &1626227633
 Transform:
   m_ObjectHideFlags: 0
