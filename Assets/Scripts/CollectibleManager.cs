@@ -17,8 +17,12 @@ public class CollectibleManager : MonoBehaviour
     public static event CollectibleCollectedEvent OnCollectibleCollected;
     public static event CollectibleCollectedEvent OnWordCollected;
 
-    public delegate void AnimalsNames(string name);
+    public delegate void AnimalsNames();
     public static event AnimalsNames OnAnimalNames;
+
+    [Header("RangoXY")]
+    public int RangoX;
+    public int RangoY;
 
     [Header("Lista de Palabras")]
     public List<string> listaPalabras = new List<string>();
@@ -29,6 +33,7 @@ public class CollectibleManager : MonoBehaviour
     [Header("Insigneas")]
     public List<GameObject> Insigneas = new List<GameObject>();
     public Transform insigneaPosicion;
+
 
     private int IndexInicial = 0;
     private int contadorPalabras = 0;
@@ -42,9 +47,6 @@ public class CollectibleManager : MonoBehaviour
             numLetras.Add(palabra.Length);
         }
 
-        
- 
-        //letrasIndividuales = new List<char>(listaPalabras[IndexInicial].ToCharArray());
         currentLetter = letrasIndividuales[IndexInicial];
         Debug.Log(letrasIndividuales.Count);
         for (int i = 0; i < numCollectibles; i++)
@@ -57,7 +59,7 @@ public class CollectibleManager : MonoBehaviour
     {
         if (currentCollectible == null)
         {
-            Vector3Int randomCell = new Vector3Int(Random.Range(-4, 4), Random.Range(-4, 4), 0);
+            Vector3Int randomCell = new Vector3Int(Random.Range(-RangoX, RangoX), Random.Range(-RangoY, RangoY), 0);
             Vector3 collectiblePosition = gridLayout.CellToWorld(randomCell) + gridLayout.cellSize / 2f;
             collectible.AsignarLetra(letra);
             currentCollectible = Instantiate(collectiblePrefab, collectiblePosition, Quaternion.identity, transform);
@@ -80,7 +82,7 @@ public class CollectibleManager : MonoBehaviour
             Debug.Log("Palabra Completa! " + listaPalabras[contadorPalabras]);
             contador = 0;
             OnWordCollected?.Invoke();
-            OnAnimalNames?.Invoke(listaPalabras[contadorPalabras]);
+            OnAnimalNames?.Invoke();
             if(contadorPalabras < Insigneas.Count)
             {
                 contadorPalabras++;
