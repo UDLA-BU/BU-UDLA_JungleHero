@@ -9,9 +9,4 @@ public class MainMenuButton : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-
-    public void Game()
-    {
-        SceneManager.LoadScene(1);
-    }
 }

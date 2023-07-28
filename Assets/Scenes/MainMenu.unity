@@ -2419,22 +2419,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 151600738894467224, guid: 54a514865b51a4f16999a2456d3d2b01, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2942535544498484291, guid: 54a514865b51a4f16999a2456d3d2b01, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5067535502744332918, guid: 54a514865b51a4f16999a2456d3d2b01, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5152386478256673945, guid: 54a514865b51a4f16999a2456d3d2b01, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5547234439330947091, guid: 54a514865b51a4f16999a2456d3d2b01, type: 3}
       propertyPath: m_Name
       value: SoundManager
@@ -2481,22 +2465,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5547234439330947093, guid: 54a514865b51a4f16999a2456d3d2b01, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5547234439840693744, guid: 54a514865b51a4f16999a2456d3d2b01, type: 3}
-      propertyPath: m_Volume
-      value: 0.495
-      objectReference: {fileID: 0}
-    - target: {fileID: 5547234439840693744, guid: 54a514865b51a4f16999a2456d3d2b01, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: ad73b49069a944f5e9a65a22a1d2e90d, type: 3}
-    - target: {fileID: 7806562988031600580, guid: 54a514865b51a4f16999a2456d3d2b01, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8446344396716858800, guid: 54a514865b51a4f16999a2456d3d2b01, type: 3}
-      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
