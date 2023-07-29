@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class MoveControl: MonoBehaviour
@@ -12,6 +14,8 @@ public class MoveControl: MonoBehaviour
     private Vector2 endTouchPosition;
     private Animator anim;
     public GameObject derrota;
+    private float score;
+    public TMP_Text scoreText;
 
     private LevelManager levelManager;
 
@@ -31,6 +35,7 @@ public class MoveControl: MonoBehaviour
         speed = 2;
         anim.SetFloat("speed",0);
         transform.position = startPoint;
+        Time.timeScale = 1f;
     }
     private void OnDestroy()
     {
@@ -42,7 +47,7 @@ public class MoveControl: MonoBehaviour
 
     private void Update()
     {
-
+        
         direction = Vector2.up;//Siempre se moverà en esa direcciòn
        
         // Detecta la direccion a la que gira haciendo swipe
@@ -151,7 +156,10 @@ public class MoveControl: MonoBehaviour
         Debug.Log("You died");
         //levelManager.ResetTimer();
         derrota.SetActive(true);
-        //Debug.Log("SCORE: "+ levelManager.currentTime);
+        Time.timeScale = 0f;
+        score = levelManager.scoreTime;
+        scoreText.text=score.ToString();
+        Debug.Log(score);
 
     }
     void Respawn()

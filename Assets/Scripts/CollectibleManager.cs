@@ -92,8 +92,5 @@ public class CollectibleManager : MonoBehaviour
 
         OnCollectibleCollected?.Invoke(); // Disparamos el evento para notificar a los suscriptores que se recolectó un objeto
     }
-    public void Premio()
-    {
-
-    }
+    
 }

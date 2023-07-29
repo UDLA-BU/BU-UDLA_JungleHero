@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour
     private int maxAdditionalScore = 200; // Puntos adicionales máximos por completar el nivel rápidamente
     public Text textoTimer;
     public TMP_Text score;
+    public float scoreTime = 0f;
+    
     private void Start()
     {
         currentTime = levelTime;
@@ -21,7 +23,7 @@ public class LevelManager : MonoBehaviour
     private void Update()
     {
         textoTimer.text = "" + currentTime.ToString("f1");
-        score.text = "" + levelTime.ToString("f1");
+        //score.text = "" + levelTime.ToString("f1");
 
         // Actualizar el temporizador
         if (levelTime < 1f)
@@ -32,6 +34,8 @@ public class LevelManager : MonoBehaviour
                 // Aquí puedes manejar lo que sucede cuando se acabe el tiempo (por ejemplo, reiniciar el nivel o mostrar una pantalla de game over).
             }
         }
+        //currentTime = levelTime;
+        scoreTime = currentTime;
     }
 
     public void OnCollectibleCollected()
@@ -48,10 +52,10 @@ public class LevelManager : MonoBehaviour
         return Mathf.RoundToInt(maxAdditionalScore - (timeRemaining / levelTime) * maxAdditionalScore);
     }
 
-    /*public void ResetTimer()
+    public float ResetTimer()
     {
         currentTime = levelTime;
-        
+        return levelTime;
     }
-    */
+    
 }
