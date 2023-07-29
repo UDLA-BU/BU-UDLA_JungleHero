@@ -158,7 +158,7 @@ public class MoveControl: MonoBehaviour
         derrota.SetActive(true);
         Time.timeScale = 0f;
         score = levelManager.scoreTime;
-        scoreText.text=score.ToString();
+        scoreText.text=score.ToString("F1");
         Debug.Log(score);
 
     }
